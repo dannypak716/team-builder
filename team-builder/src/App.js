@@ -10,8 +10,11 @@ const teamList = [
   { name: 'Shane', age: '23', favFood: 'cheese' },
 ]
 
+const initialFormValues = { name: '', age: '', favFood: '' }
+
 function App() {
   const [members, setMembers] = useState(teamList);
+  const [formValues, setFormValues] = useState(initialFormValues);
 
   return (
     <div className="App">
@@ -21,6 +24,29 @@ function App() {
           {member.name} is {member.age} years old and loves to eat {member.favFood}
         </div>
       ))}
+      <form>
+        <input 
+          type="text"
+          name="name"
+          placeholder="Wusyaname?"
+          value={formValues.name}
+        >
+        </input>
+        <input 
+          type="text"
+          name="age"
+          placeholder="# of Sun revolutions"
+          value={formValues.age}
+        >
+        </input>
+        <input 
+          type="text"
+          name="favFood"
+          placeholder="Favorite munchie"
+          value={formValues.favFood}
+        >
+        </input>
+      </form>
     </div>
   );
 }
